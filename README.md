@@ -2,168 +2,214 @@
 
 > **Offline-First Distributed Storage & Synchronization Platform**
 
-Project Virtue is an experimental distributed storage and synchronization platform focused on secure, resilient, and efficient file management across trusted devices within a private network.
+Project Virtue is a long-term software engineering project focused on building a secure, distributed file storage and synchronization platform for trusted home networks.
 
-The project explores distributed systems, secure networking, systems programming, and software architecture through a modular design built primarily with **Python** and **C**.
+The goal is simple:
 
----
+> **Access files from anywhere without directly exposing the home NAS to the internet.**
 
-## Overview
-
-Project Virtue aims to provide secure access to a home storage environment while minimizing permanent storage on intermediary devices.
-
-Rather than exposing storage directly to the internet, Virtue introduces trusted network components that coordinate secure communication, intelligent task scheduling, and reliable file transfers.
-
-The project follows an **offline-first** philosophy whenever possible, allowing local operations to continue even when internet connectivity is unavailable.
+Instead of relying on a traditional cloud service, Project Virtue uses trusted devices on the home network to securely coordinate file transfers while keeping the primary storage device isolated.
 
 ---
 
-# Core Objectives
+# Why?
 
-- Secure communication between trusted devices
-- Distributed node coordination
-- Intelligent task scheduling
-- Offline-first architecture
-- Resumable uploads and downloads
+Most cloud storage platforms require uploading your files to someone else's servers.
+
+Project Virtue takes a different approach.
+
+The project is designed around a home network where multiple trusted devices cooperate to securely move files between users and a central storage server.
+
+The system focuses on:
+
+- Security
+- Reliability
+- Recoverability
+- Minimal storage usage
+- Offline-first operation
+
+Rather than replacing cloud storage, Project Virtue is an exploration of distributed systems, networking, and software engineering through a real-world project.
+
+---
+
+# The Problem
+
+Imagine you're away from home.
+
+You need a file stored on your NAS.
+
+The obvious solution is exposing your NAS directly to the internet.
+
+Unfortunately, that also increases your attack surface.
+
+Another option is storing everything on a cloud provider, but that means trusting a third party with your files.
+
+Project Virtue explores another approach.
+
+Trusted devices inside the home network cooperate to securely handle requests while the storage server remains protected behind the local network.
+
+---
+
+# Goals
+
+Project Virtue aims to provide:
+
+- Secure remote file access
+- Offline-first operation
+- Intelligent node coordination
 - Automatic recovery from interrupted transfers
-- Minimal residual storage on relay devices
-- Modular, maintainable architecture
-- High-performance transfer engine
+- Efficient storage usage
+- Modular architecture
+- Cross-platform support
+- A platform for learning systems programming and networking
 
 ---
 
-# Current Features
+# Core Design Principles
 
-- Modular architecture
-- Node orchestration
-- Temporary file staging
-- Transfer state tracking
-- Automatic cleanup of temporary files
-- Architecture documentation
-- Protocol design
+## Security First
+
+Security is considered from the beginning of the design process.
+
+Authentication, trusted communication, and layered validation are fundamental parts of the architecture.
+
+Specific implementation details are intentionally omitted from public documentation.
+
+---
+
+## Offline First
+
+Whenever possible, the system should continue operating locally even when internet connectivity is unavailable.
+
+For example:
+
+- Local uploads should continue.
+- Local synchronization should continue.
+- Interrupted transfers should resume once connectivity returns.
+
+---
+
+## Reliability
+
+Large file transfers should not restart from the beginning because of a temporary connection loss.
+
+Project Virtue is designed to support resumable transfers and automatic recovery wherever practical.
+
+---
+
+## Temporary Storage
+
+Relay devices are not intended to become permanent storage.
+
+Files are only stored temporarily when required for transfer operations and are removed once the transfer has been successfully completed.
 
 ---
 
 # Planned Features
 
+## Storage
+
+- Distributed storage coordination
+- Temporary relay storage
+- Metadata synchronization
+- Intelligent file discovery
+
+## Networking
+
 - Secure remote access
-- Distributed relay node system
-- Intelligent node selection
+- Gateway coordination
+- Trusted node communication
 - Automatic node discovery
-- File metadata synchronization
-- On-demand file retrieval
-- Transfer queue management
-- Transfer progress monitoring
+
+## Transfers
+
+- Upload manager
 - Download manager
-- Automatic resume after interruptions
-- Transfer integrity verification
-- Local web management interface
-- Multi-user support
-- Media server integration
-- Cross-platform support
-
----
-
-# Security
-
-Security is one of the primary design goals of Project Virtue.
-
-Current research areas include:
-
-- Authenticated device communication
-- Trusted node verification
-- Session validation
-- Layered request filtering
-- Secure transfer coordination
+- Transfer queue
+- Resume interrupted transfers
+- Progress tracking
 - Integrity verification
-- Principle of least privilege
-- Defense-in-depth architecture
 
-For security reasons, implementation details, authentication mechanisms, and protocol internals are intentionally omitted from public documentation.
+## User Experience
+
+- Local web dashboard
+- Transfer monitoring
+- Multiple user accounts
+- Media server integration
 
 ---
 
-# Technology Stack
+# Technology
 
-## Languages
+Languages
 
 - Python
 - C
 
-## Areas of Study
+Areas of Study
 
-- Distributed Systems
 - Computer Networking
+- Distributed Systems
 - Systems Programming
-- File Systems
-- Software Architecture
 - Operating Systems
 - Cybersecurity
+- Software Architecture
 
 ---
 
-# Documentation
+# Current Status
 
-Project documentation is located inside the `docs/` directory.
+Project Virtue is currently in the architecture and protocol design phase.
 
-Recommended structure:
-
-```
-docs/
-├── architecture/
-├── protocol/
-├── diagrams/
-├── decisions/
-└── research/
-```
+The current focus is designing the communication protocols, system architecture, and overall project structure before implementation begins.
 
 ---
 
-# Architecture Diagrams
+# Architecture
+
+The latest editable architecture diagram can be found here:
+
+- `architecture.excalidraw`
+
+Current preview:
 
 ![Project Virtue Architecture](Screenshot%20from%202026-07-21%2022-15-08.png)
 
 ---
 
-# Project Status
-
-**Current Phase**
-
-> Architecture Design & Protocol Specification
-
-The project is currently focused on refining the overall system architecture before full implementation begins.
-
----
-
 # Roadmap
 
-- [ ] Gateway implementation
-- [ ] Node implementation
-- [ ] Communication protocol
-- [ ] Authentication framework
-- [ ] Transfer engine (C)
-- [ ] Resumable transfers
-- [ ] Metadata manager
-- [ ] Download manager
-- [ ] Synchronization engine
-- [ ] Web dashboard
-- [ ] Mobile support
-- [ ] Production testing
+- [ ] Gateway
+- [ ] Node Communication Protocol
+- [ ] Authentication Layer
+- [ ] Transfer Engine (C)
+- [ ] Upload Manager
+- [ ] Download Manager
+- [ ] Resume Protocol
+- [ ] Metadata System
+- [ ] Web Dashboard
+- [ ] Mobile Client
 
 ---
 
-# Contributing
+# Learning Goals
 
-Project Virtue is currently in active development.
+Project Virtue is also a learning project.
 
-Contributions, discussions, design suggestions, and issue reports are welcome as the project matures.
+It serves as a practical platform for exploring concepts such as:
+
+- Secure networking
+- Distributed systems
+- File synchronization
+- Protocol design
+- Software architecture
+- Systems programming
+- Performance optimization
+
+As new concepts are learned, the project evolves through continuous refinement and redesign.
 
 ---
 
 # License
 
-This project is licensed under the MIT License.
-
----
-
-> **Project Virtue** is a long-term software engineering project dedicated to exploring secure distributed storage, networking, and resilient file synchronization while serving as a practical platform for continuous learning and experimentation.
+MIT License
