@@ -121,19 +121,7 @@ docs/
 
 # Architecture Diagrams
 
-The latest Excalidraw diagrams can be found here.
-
-```
-docs/diagrams/
-├── system-overview.excalidraw
-├── upload-flow.excalidraw
-├── download-flow.excalidraw
-├── gateway.excalidraw
-├── node-state.excalidraw
-└── protocol.excalidraw
-```
-
-> 📌 Replace this section with links or embedded previews as the architecture evolves.
+![Project Virtue Architecture](Screenshot%20from%202026-07-21%2022-15-08.png)
 
 ---
 
