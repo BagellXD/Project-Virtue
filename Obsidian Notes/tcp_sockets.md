@@ -171,9 +171,9 @@ msg_length = int(msg_length.strip())
 msg = conn.recv(msg_length).decode(utf-8)
 ```
 ->
-	```
-	recv() -> allows the serfver to recieve the text sent by the client
-	HEADER -> is the number of bytes expected to be recieved
-	.decode() -> decodes the message sent from byte to normal message factor
-	.decode(utf-8) -> utf-8 is the normal text factor
-	```
+```
+recv() -> allows the serfver to recieve the text sent by the client
+HEADER -> is the number of bytes expected to be recieved
+.decode() -> decodes the message sent from byte to normal message factor
+.decode(utf-8) -> utf-8 is the normal text factor
+```
